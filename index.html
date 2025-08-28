@@ -1,1 +1,309 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eldin Ukic – Portfolio | Software • Automation • KI</title>
+  <meta name="description" content="Portfolio von Eldin Ukic: Software, Automatisierung, KI, Homelab, Notion-Templates. Projekte, Skills, Kontakt." />
+  <meta name="theme-color" content="#0b0d10" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Eldin Ukic – Portfolio" />
+  <meta property="og:description" content="Software • Automation • KI — ich baue nützliche Dinge." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://EldinUkic.github.io" />
+  <meta property="og:image" content="https://EldinUkic.github.io/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- JSON-LD (strukturierte Daten) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Eldin Ukic",
+    "url":"https://EldinUkic.github.io",
+    "jobTitle":"Software & Automation",
+    "sameAs":[
+      "https://github.com/EldinUkic",
+      "https://www.linkedin.com/in/DEIN-LINKEDIN"
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#0b0d10;
+      --bg-soft:#0f141a;
+      --panel:#0f141a;
+      --border:#1f2937;
+      --text:#e7edf3;
+      --muted:#a3b1c2;
+      --brand:#8b5cf6;
+      --brand-2:#22d3ee;
+      --radius:16px;
+      --max:1080px;
+      --pad:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    [data-theme="light"]{
+      --bg:#f8fafc;
+      --bg-soft:#ffffff;
+      --panel:#ffffff;
+      --border:#e5e7eb;
+      --text:#0f172a;
+      --muted:#475569;
+      --shadow:0 10px 30px rgba(2,6,23,.06);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5}
+    a{color:inherit}
+    img{max-width:100%;display:block}
+
+    /* Header/Hero */
+    .hero{
+      padding:80px var(--pad) 40px;
+      background:
+        radial-gradient(1200px 400px at 50% -40%, rgba(139,92,246,.25), transparent 60%),
+        linear-gradient(180deg,#111827 0,var(--bg) 60%);
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px);letter-spacing:.2px}
+    .hero p{margin:0 auto;max-width:760px;color:var(--muted);font-size:clamp(16px,2.2vw,18px)}
+    .badge{
+      display:inline-flex;gap:8px;align-items:center;
+      border:1px solid var(--border);
+      padding:6px 12px;border-radius:999px;background:rgba(0,0,0,.08)
+    }
+    .hero-cta{margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn{
+      border:1px solid var(--border);
+      padding:10px 14px;border-radius:12px;text-decoration:none;
+      backdrop-filter:saturate(1.1) blur(2px);
+      box-shadow:var(--shadow);
+    }
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#0b0d10;border-color:transparent;font-weight:600}
+    .btn:hover{transform:translateY(-1px)}
+    .theme-toggle{
+      position:absolute;right:var(--pad);top:18px;border:1px solid var(--border);
+      background:var(--panel);border-radius:999px;padding:8px 12px;cursor:pointer
+    }
+
+    /* Nav */
+    .nav{
+      position:sticky;top:0;z-index:20;backdrop-filter:saturate(1.2) blur(8px);
+      background:color-mix(in oklab, var(--bg) 90%, transparent);border-bottom:1px solid var(--border);
+    }
+    .nav-inner{
+      max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;
+      padding:10px var(--pad)
+    }
+    .logo{display:flex;gap:10px;align-items:center;font-weight:700}
+    .logo-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+    .nav a{padding:8px 10px;border-radius:10px;border:1px solid transparent;text-decoration:none;color:var(--muted)}
+    .nav a:hover{border-color:var(--border);color:var(--text)}
+
+    /* Layout panels */
+    .wrap{max-width:var(--max);margin:0 auto;padding:40px var(--pad);display:grid;gap:28px}
+    section.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+    h2{margin:0 0 8px;font-size:22px}
+    .muted{color:var(--muted)}
+
+    /* Projects grid */
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{
+      border:1px solid var(--border);border-radius:14px;background:var(--bg-soft);padding:16px;
+      display:flex;flex-direction:column;gap:10px;transition:transform .15s ease;
+    }
+    .card:hover{transform:translateY(-2px)}
+    .card h3{margin:0 0 4px;font-size:18px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{font-size:12px;border:1px solid var(--border);padding:4px 8px;border-radius:999px;color:var(--muted)}
+    .actions{display:flex;gap:10px;margin-top:auto}
+    .actions a{flex:1;text-align:center}
+
+    /* Skills */
+    .skills{display:grid;grid-template-columns:1fr;gap:14px}
+    .skill{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--border);border-radius:12px;padding:10px 12px;background:var(--bg-soft)}
+    .bar{height:8px;border-radius:6px;background:color-mix(in oklab, var(--muted) 25%, transparent);flex:1;margin-left:12px;position:relative;overflow:hidden}
+    .bar > span{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,var(--brand),var(--brand-2));border-radius:6px}
+
+    /* Footer */
+    footer{border-top:1px solid var(--border);padding:32px var(--pad);text-align:center;color:var(--muted)}
+    .links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+    .links a{border:1px solid var(--border);padding:8px 10px;border-radius:10px;text-decoration:none}
+
+    /* Small helper for reduced motion */
+    @media (prefers-reduced-motion:no-preference){
+      .fade-in{animation:fade .6s ease both}
+      @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Nav -->
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="logo" aria-label="Startseite">
+        <span class="logo-dot" aria-hidden="true"></span> Eldin Ukic
+      </div>
+      <nav aria-label="Hauptnavigation">
+        <a href="#about">Über mich</a>
+        <a href="#projects">Projekte</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero fade-in">
+    <button class="theme-toggle" id="themeToggle" aria-label="Designmodus umschalten">🌙/☀️</button>
+    <div class="badge" aria-label="Kurzbio">
+      <span>Software • Automation • KI</span>
+    </div>
+    <h1>Eldin Ukic</h1>
+    <p>
+      Ich baue klare, nützliche Systeme – von AI-Automation über Notion-Workflows bis zu Homelab-Infrastruktur.
+      Fokus: Produktivität, Datenschutz & reale Wirkung.
+    </p>
+    <div class="hero-cta">
+      <a class="btn primary" href="#projects">Projekte ansehen</a>
+      <a class="btn" href="mailto:deine.mail@domain.de">Kontakt aufnehmen</a>
+      <a class="btn" href="./Eldin-Ukic-CV.pdf" title="Lebenslauf als PDF">CV herunterladen</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- About -->
+    <section id="about" class="panel fade-in" aria-labelledby="about-title">
+      <h2 id="about-title">Über mich</h2>
+      <p class="muted">
+        Informatikstudent & Builder. Ich kombiniere Software-Engineering mit Automatisierung und
+        KI, um Arbeit zu vereinfachen und zuverlässig zu machen. Praktische Erfahrung mit
+        Proxmox/Docker, Home Assistant, Python, Shell, Git, API-Integration und
+        Notion-Systemdesign. Ich mag robuste Architekturen, testbare Prozesse und gute DX.
+      </p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="panel fade-in" aria-labelledby="projects-title">
+      <h2 id="projects-title">Ausgewählte Projekte</h2>
+      <p class="muted">Eine kleine Auswahl. Mehr auf GitHub.</p>
+      <div class="grid" role="list">
+        <!-- Project 1 -->
+        <article class="card" role="listitem">
+          <h3>LiveOS – Notion Productivity OS</h3>
+          <p>Modulares System für Missionen, Kampagnen & Quests statt reiner Routinen.
+             Optimiert für Klarheit, Tracking & Geschwindigkeit.</p>
+          <div class="chips">
+            <span class="chip">Notion</span><span class="chip">Produktivität</span><span class="chip">Templates</span>
+          </div>
+          <div class="actions">
+            <a class="btn" href="https://github.com/DEIN-GH/liveos" target="_blank" rel="noopener">Code</a>
+            <a class="btn" href="https://etco.dev/liveos" target="_blank" rel="noopener">Live</a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="card" role="listitem">
+          <h3>AI Automation Service</h3>
+          <p>Leichtgewichtige, datenschutzfreundliche Automationen (lokal/on-prem), u.a. Kalender-KI,
+             E-Mail-Parsing & Task-Sync.</p>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">Transformers</span><span class="chip">Docker</span>
+          </div>
+          <div class="actions">
+            <a class="btn" href="https://github.com/DEIN-GH/ai-automation" target="_blank" rel="noopener">Code</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Demo</a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="card" role="listitem">
+          <h3>Homelab: Proxmox • NVR • Private Cloud</h3>
+          <p>24/7-Server mit Proxmox, Frigate NVR, Nextcloud und Home Assistant. Fokus auf Resilienz,
+             Remote-Zugriff & Energieeffizienz.</p>
+          <div class="chips">
+            <span class="chip">Proxmox</span><span class="chip">Docker</span><span class="chip">pfSense</span>
+          </div>
+          <div class="actions">
+            <a class="btn" href="https://github.com/DEIN-GH/homelab" target="_blank" rel="noopener">IaC/Docs</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Architektur</a>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="card" role="listitem">
+          <h3>Algo & Data Structures Cheats</h3>
+          <p>Kompakte Lernkarten & Visuals (Komplexität, Mastertheorem, Graphen) – für schnelle Prüfungsvorbereitung.</p>
+          <div class="chips">
+            <span class="chip">C++</span><span class="chip">Python</span><span class="chip">Lehre</span>
+          </div>
+          <div class="actions">
+            <a class="btn" href="https://github.com/DEIN-GH/algo-notes" target="_blank" rel="noopener">Repo</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Preview</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="panel fade-in" aria-labelledby="skills-title">
+      <h2 id="skills-title">Skills & Stack</h2>
+      <div class="skills">
+        <div class="skill"><span>Python / Shell / Git</span><div class="bar"><span style="width:88%"></span></div></div>
+        <div class="skill"><span>Docker / Proxmox / Linux</span><div class="bar"><span style="width:85%"></span></div></div>
+        <div class="skill"><span>Notion Systems & Automationen</span><div class="bar"><span style="width:90%"></span></div></div>
+        <div class="skill"><span>C++ / Datenstrukturen</span><div class="bar"><span style="width:70%"></span></div></div>
+        <div class="skill"><span>Web (HTML/CSS/JS)</span><div class="bar"><span style="width:65%"></span></div></div>
+      </div>
+      <p class="muted" style="margin-top:8px">Projekte sind testbar, dokumentiert und reproduzierbar. Ich optimiere auf Klarheit, Robustheit und Wartbarkeit.</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="panel fade-in" aria-labelledby="contact-title">
+      <h2 id="contact-title">Kontakt</h2>
+      <p>📧 <a href="mailto:deine.mail@domain.de">deine.mail@domain.de</a></p>
+      <div class="links" aria-label="Externe Profile">
+        <a href="https://github.com/EldinUkic" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/DEIN-LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://t.me/DEIN-TELEGRAM" target="_blank" rel="noopener">Telegram</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Eldin Ukic — Frankfurt • Serbien
+    <div class="links" style="margin-top:10px">
+      <a href="#about">Über mich</a>
+      <a href="#projects">Projekte</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Kontakt</a>
+    </div>
+  </footer>
+
+  <script>
+    // Jahr
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme (persistiert in localStorage)
+    const root = document.documentElement;
+    const key = 'theme';
+    const saved = localStorage.getItem(key);
+    if(saved){ root.setAttribute('data-theme', saved); }
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem(key, next);
+    });
+    // Default dark
+    if(!saved){ root.setAttribute('data-theme','dark'); }
+
+    // Prefers reduced motion: nothing to do (CSS guards present)
+  </script>
+</body>
+</html>
 
